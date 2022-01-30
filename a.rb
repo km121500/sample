@@ -1,18 +1,22 @@
-puts "数字を入力してください"
-input = gets 
-num = input.to_i
+SET = ["apple", "google", "amazon"]
 
-# 数値が3と5で割り切れる場合
-if num%15 == 0
-  puts '結果は..'
-  puts '3と5で割り切れる'
-elsif num%3 == 0
-  puts '結果は..'
-  puts '3で割り切れる'
-elsif num%5 == 0
-  puts '結果は..'
-  puts '5で割り切れる'
-else 
-  puts '結果は..'
-  puts num
+cnt = 0
+len = 3
+
+while cnt < (1 << len)
+  bit = cnt.to_s(2).rjust(len,'0').split("").map(&:to_i)
+
+  sample = []
+  SET.zip(bit).each do |test|
+    item,b = test.first,test.last
+    # bitが1だったら処理
+    if b==1 
+      sample << item
+    end
+  end
+
+array = [] 
+sample(array)
+p array
+  cnt+=1
 end

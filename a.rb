@@ -1,22 +1,37 @@
-SET = ["apple", "google", "amazon"]
 
-cnt = 0
-len = 3
 
-while cnt < (1 << len)
-  bit = cnt.to_s(2).rjust(len,'0').split("").map(&:to_i)
-
-  sample = []
-  SET.zip(bit).each do |test|
-    item,b = test.first,test.last
-    # bitが1だったら処理
-    if b==1 
-      sample << item
-    end
-  end
-
-array = [] 
-sample(array)
-p array
-  cnt+=1
+#while
+ i = 1
+while i <= 10
+    puts i
+    i = i+1
 end
+
+#2次元配列
+numbers = Array.new(4).map{Array.new(3,1)}
+numbers =[0][1] = 2
+p numbers
+
+# 2次元配列を作成してみよう
+a = Array.new(5).map{Array.new(4,7)}
+p a
+
+# 自分の得意な言語で
+# Let's チャレンジ！！
+
+a = gets.chomp
+b = gets
+
+puts a
+puts b
+
+10.times do
+   a = gets.chomp
+   puts a
+end
+
+a = Array.new(5)
+
+5.times { |i| a[i] = gets.to_i }
+
+a.each { |val| puts val }

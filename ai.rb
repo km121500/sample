@@ -29,3 +29,27 @@ end
 print(twin(2,10)) # 双子素数を10組表示
 print(twin(4,10)) # いとこ素数を10組表示
 print(twin(6,10)) # セクシー素数を10組表示
+
+def pas(n)
+  if n<1 then
+    return [1]
+  else
+    a = pas(n-1)
+    return ([0]+a).zip(a+[0]).map{|v| v.inject(:+)}
+  end
+end
+
+print((0..9).to_a.map{|v| pas(v)}) # パスカルの三角形を10段表示
+
+def fib(a,b,n)
+  if n==0 then
+    return a
+  elsif n==1 then
+    return b
+  else
+    return fib(a,b,n-2) + fib(a,b,n-1)
+  end
+end
+
+print((0..9).to_a.map{|v| fib(0,1,v)}) # フィボナッチ数を10個表示
+print((0..9).to_a.map{|v| fib(2,1,v)}) # リュカ数を10個表示

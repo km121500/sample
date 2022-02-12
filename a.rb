@@ -77,3 +77,80 @@ def fib(n)
     fib(n-1) + fib(n-2)
   end
 end
+
+# primes_all.rb
+# 数の最初の n 個を配列で返すプログラム
+
+def primes_all(n)
+
+  primes = Array.new(n)
+  count = 0
+  number = 2
+
+  while count < n
+    if prime(number)
+      primes[count] = number
+      count = count + 1
+    end
+    number = number + 1
+  end
+
+  primes
+
+end
+
+def prime(n)
+  if n < 2
+    false
+  else
+    ans = true
+    div = 2
+    while div <= n / 2 && ans == true
+      if n % div == 0
+        ans = false
+      end
+      div = div + 1
+    end
+    ans
+  end
+end
+
+# primes_all_r.rb
+# 数の最初の n 個を配列で返すプログラム (再帰関数)
+
+def primes_all(n)
+
+  primes_all_r(n, 2, Array.new(n), 0)
+
+end
+
+def primes_all_r(n, number, primes, count)
+
+  if count >= n
+    primes
+  elsif prime(number)
+    primes[count] = number
+    primes_all_r(n, number + 1, primes, count + 1)
+  else
+    primes_all_r(n, number + 1, primes, count)
+  end
+
+end
+
+def prime(n)
+
+  prime_r(n, n-1)
+
+end
+
+def prime_r(n, m)
+
+  if m <= 1
+    true
+  elsif n % m == 0
+    false
+  else
+    prime_r(n, m-1)
+  end
+
+end

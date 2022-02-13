@@ -77,3 +77,114 @@ def fib(n)
     fib(n-1) + fib(n-2)
   end
 end
+
+# primes_all.rb
+# 数の最初の n 個を配列で返すプログラム
+
+def primes_all(n)
+
+  primes = Array.new(n)
+  count = 0
+  number = 2
+
+  while count < n
+    if prime(number)
+      primes[count] = number
+      count = count + 1
+    end
+    number = number + 1
+  end
+
+  primes
+
+end
+
+def prime(n)
+  if n < 2
+    false
+  else
+    ans = true
+    div = 2
+    while div <= n / 2 && ans == true
+      if n % div == 0
+        ans = false
+      end
+      div = div + 1
+    end
+    ans
+  end
+end
+
+# primes_all_r.rb
+# 数の最初の n 個を配列で返すプログラム (再帰関数)
+
+def primes_all(n)
+
+  primes_all_r(n, 2, Array.new(n), 0)
+
+end
+
+def primes_all_r(n, number, primes, count)
+
+  if count >= n
+    primes
+  elsif prime(number)
+    primes[count] = number
+    primes_all_r(n, number + 1, primes, count + 1)
+  else
+    primes_all_r(n, number + 1, primes, count)
+  end
+
+end
+
+def prime(n)
+
+  prime_r(n, n-1)
+
+end
+
+def prime_r(n, m)
+
+  if m <= 1
+    true
+  elsif n % m == 0
+    false
+  else
+    prime_r(n, m-1)
+  end
+
+end
+
+# divisor_string.rb
+# 正の整数 n の全ての約数を文字列として返すプログラム
+
+def divisor_string(n)
+  result =""
+  for k in 1..n
+    if n % k == 0
+      if result == ""
+        result = k.to_s
+      else
+        result = result + ", " + k.to_s
+      end
+    end
+  end
+  result
+end
+
+# divisor_string_r.rb
+# 正の整数 n の全ての約数を文字列として返すプログラム (再帰)
+
+def divisor_string(n)
+  divisor_string_r(n, 2, "1")
+end
+
+def divisor_string_r(n, div, string)
+  if div > n
+    string
+  elsif n % div == 0
+    divisor_string_r(n, div+1, string + ", " + div.to_s)
+  else
+    divisor_string_r(n, div+1, string)
+  end
+end

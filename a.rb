@@ -154,3 +154,37 @@ def prime_r(n, m)
   end
 
 end
+
+# divisor_string.rb
+# 正の整数 n の全ての約数を文字列として返すプログラム
+
+def divisor_string(n)
+  result =""
+  for k in 1..n
+    if n % k == 0
+      if result == ""
+        result = k.to_s
+      else
+        result = result + ", " + k.to_s
+      end
+    end
+  end
+  result
+end
+
+# divisor_string_r.rb
+# 正の整数 n の全ての約数を文字列として返すプログラム (再帰)
+
+def divisor_string(n)
+  divisor_string_r(n, 2, "1")
+end
+
+def divisor_string_r(n, div, string)
+  if div > n
+    string
+  elsif n % div == 0
+    divisor_string_r(n, div+1, string + ", " + div.to_s)
+  else
+    divisor_string_r(n, div+1, string)
+  end
+end

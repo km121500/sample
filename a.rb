@@ -203,3 +203,44 @@ def sum3(n, m)
   end
   s
 end
+# fib_string.rb
+# フィボナッチ数の計算結果を文字列で返すプログラム
+
+def fib_string(n)
+  string = "1"
+  for k in 1..n
+    string = string + ", " + fib(k).to_s
+  end
+  string
+end
+
+def fib(n)
+  if n == 0 || n == 1
+    1
+  else
+    fib(n-1) + fib(n-2)
+  end
+end
+
+# fib_string_r.rb
+# フィボナッチ数の計算結果を文字列で返すプログラム (再帰関数)
+
+def fib_string(n)
+  fib_string_r(n, 0, fib(0).to_s)
+end
+
+def fib_string_r(n, k, string)
+  if n == k
+    string
+  else
+    fib_string_r(n, k+1, string + ", " + fib(k+1).to_s)
+  end
+end
+
+def fib(n)
+  if n == 0 || n == 1
+    1
+  else
+    fib(n-1) + fib(n-2)
+  end
+end

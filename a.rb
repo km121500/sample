@@ -188,3 +188,59 @@ def divisor_string_r(n, div, string)
     divisor_string_r(n, div+1, string)
   end
 end
+
+# sum3.rb
+# n から m までを足す関数 (for 文)
+# 計算の途中経過を表示する．
+
+def sum3(n, m)
+  s = 0
+  for i in n..m  # i を n から m まで 1 ずつ増やして以下の計算を行う．
+    s = s + i
+    print(s, "\n")
+    # 結果を表示
+    # s の値を表示して，改行 "\n" で指示
+  end
+  s
+end
+# fib_string.rb
+# フィボナッチ数の計算結果を文字列で返すプログラム
+
+def fib_string(n)
+  string = "1"
+  for k in 1..n
+    string = string + ", " + fib(k).to_s
+  end
+  string
+end
+
+def fib(n)
+  if n == 0 || n == 1
+    1
+  else
+    fib(n-1) + fib(n-2)
+  end
+end
+
+# fib_string_r.rb
+# フィボナッチ数の計算結果を文字列で返すプログラム (再帰関数)
+
+def fib_string(n)
+  fib_string_r(n, 0, fib(0).to_s)
+end
+
+def fib_string_r(n, k, string)
+  if n == k
+    string
+  else
+    fib_string_r(n, k+1, string + ", " + fib(k+1).to_s)
+  end
+end
+
+def fib(n)
+  if n == 0 || n == 1
+    1
+  else
+    fib(n-1) + fib(n-2)
+  end
+end

@@ -46,3 +46,14 @@ def sosu(a)
 end
 
 print(sosu((2..100).to_a)) # 100までの素数を表示
+
+num = gets.chomp.split(" ").map(&:to_i)
+x = num[0]
+i = 1
+array = []
+while i <= 10
+  array << x
+  x = x + num[1]
+  i += 1
+end
+print array.join(" ")

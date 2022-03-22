@@ -129,3 +129,14 @@ p arr # => 実行結果：[20, 30, 40, 50, 60]
 # Array.delete_atメソッド
 arr.delete_at(2)
 p arr # => 実行結果：[20, 30, 50, 60]
+
+num = gets.chomp.split(" ").map(&:to_i)
+x = num[0]
+i = 1
+array = []
+while i <= 10
+  array << x
+  x = x + num[1]
+  i += 1
+end
+print array.join(" ")

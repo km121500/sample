@@ -151,3 +151,14 @@ while i <= 10
   i += 1
 end
 print array.join(" ")
+
+num = gets.chomp.split(" ").map(&:to_i)
+x = num[0]
+i = 1
+array = []
+while i <= 10
+  array << x
+  x = x + num[1]
+  i += 1
+end
+print array.join(" ")
